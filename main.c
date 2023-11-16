@@ -92,6 +92,15 @@ int main(int argc, char *argv[])
         }else if (strcmp(opcode, "nop") == 0)
         {
             nop(&stack, line_number);
+        }else if(strcmp(opcode, "sub") == 0)
+        {
+            sub(&stack, line_number);
+        }else if (strcmp(opcode, "div_op") == 0)
+        {
+            div_op(&stack, line_number);
+        }else if(strcmp(opcode, "mul") == 0)
+        {
+            mul(&stack, line_number);
         }
         else
         {
