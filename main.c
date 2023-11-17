@@ -2,6 +2,7 @@
 
 int main(int argc, char *argv[])
 {
+
     FILE *file;
     stack_t *stack;
     char *opcode;
@@ -124,7 +125,7 @@ int main(int argc, char *argv[])
         }
         else if (strcmp(opcode, "queue") == 0)
         {
-            queue_op(&stack, line_number);
+              queue_op(&stack, line_number);
         }
         else if (strcmp(opcode, "stack") == 0)
         {
