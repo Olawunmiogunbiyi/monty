@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * add - Adds the top two elements of the stack.
+ * @stack: Double pointer to the stack
+ * @line_number: Line number being executed
+ */
 
 void add(stack_t **stack, unsigned int line_number)
 {
@@ -14,11 +19,17 @@ void add(stack_t **stack, unsigned int line_number)
 }
 
 
+/**
+ * nop - Does not do anything.
+ * @stack: Double pointer to the stack
+ * @line_number: Line number being executed
+ */
+
 
 void nop(stack_t **stack, unsigned int line_number)
 {
     /* The nop opcode doesn't do anything */
-    (void)stack;
+    (void)stack; 
     (void)line_number;
 }
 
@@ -35,6 +46,12 @@ void sub(stack_t **stack, unsigned int line_number)
     pop(stack, line_number);
 }
 
+
+/**
+ * div_op - Divides the second top element of the stack by the top element.
+ * @stack: Double pointer to the stack
+ * @line_number: Line number being executed
+ */
 
 
 void div_op(stack_t **stack, unsigned int line_number)
@@ -54,6 +71,13 @@ void div_op(stack_t **stack, unsigned int line_number)
     (*stack)->next->n /= (*stack)->n;
     pop(stack, line_number);
 }
+
+
+/**
+ * mul - Multiplies the top two elements of the stack.
+ * @stack: Double pointer to the stack
+ * @line_number: Line number being executed
+ */
 
 
 void mul(stack_t **stack, unsigned int line_number)

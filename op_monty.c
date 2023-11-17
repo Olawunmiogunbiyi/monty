@@ -1,5 +1,14 @@
 #include "monty.h"
 
+
+/**
+ * mod - Computes the remainder of the division of the second top element by
+ * the top element of the stack.
+ * @stack: Double pointer to the stack
+ * @line_number: Line number being executed
+ */
+
+
 void mod(stack_t **stack, unsigned int line_number)
 {
     if (*stack == NULL || (*stack)->next == NULL)
@@ -18,6 +27,13 @@ void mod(stack_t **stack, unsigned int line_number)
 
     pop(stack, line_number);
 }
+
+
+/**
+ * pchar - Prints the ASCII character corresponding to the top element of the stack.
+ * @stack: Double pointer to the stack
+ * @line_number: The Line number are being executed.
+ */
 
 
 void pchar(stack_t **stack, unsigned int line_number)
@@ -42,6 +58,13 @@ void pchar(stack_t **stack, unsigned int line_number)
 }
 
 
+/**
+ * pstr - Prints the string starting from the top of the stack.
+ * @stack: Double pointer to the stack
+ * @line_number: Line number being executed
+ */
+
+
 void pstr(stack_t **stack, unsigned int line_number)
 {
     stack_t *current = *stack;
@@ -55,6 +78,13 @@ void pstr(stack_t **stack, unsigned int line_number)
 
     printf("\n");
 }
+
+
+/**
+ * rotl - Rotates the stack to the top.
+ * @stack: Double pointer to the stack
+ * @line_number: Line number being executed
+ */
 
 
 void rotl(stack_t **stack, unsigned int line_number)
