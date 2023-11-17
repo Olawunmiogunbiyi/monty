@@ -7,6 +7,15 @@
 #include <unistd.h>
 #include <ctype.h>
 #include <string.h>
+
+#define STACK_MODE 0
+#define QUEUE_MODE 1
+
+
+
+
+
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -37,6 +46,9 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+
+
+
 void push(stack_t **stack, int value);
 void pall(stack_t **stack);
 void pint(stack_t **stack, unsigned int line_number);
@@ -55,6 +67,12 @@ void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
+
+int check_mode(stack_t *stack);
+int get_mode();
+void queue_op(stack_t **stack, unsigned int line_number);
+void stack_op(stack_t **stack, unsigned int line_number);
+int get_mode();
 
 
 

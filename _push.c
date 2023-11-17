@@ -8,7 +8,6 @@
  */
 
 
-/* Function implementations */
 void push(stack_t **stack, int value)
 {
     stack_t *new_node = malloc(sizeof(stack_t));
@@ -20,14 +19,39 @@ void push(stack_t **stack, int value)
 
     new_node->n = value;
     new_node->prev = NULL;
-    new_node->next = *stack;
 
-    if (*stack != NULL)
+    if (get_mode() == STACK_MODE)
     {
-        (*stack)->prev = new_node;
-    }
+        new_node->next = *stack;
 
-    *stack = new_node;
+        if (*stack != NULL)
+        {
+            (*stack)->prev = new_node;
+        }
+
+        *stack = new_node;
+    }
+    else if (get_mode() == QUEUE_MODE)
+    {
+        stack_t *last = *stack;
+
+        while (last != NULL && last->next != NULL)
+        {
+            last = last->next;
+        }
+
+        if (last != NULL)
+        {
+            last->next = new_node;
+            new_node->prev = last;
+            new_node->next = NULL;
+        }
+        else
+        {
+            new_node->next = *stack;
+            *stack = new_node;
+        }
+    }
 }
 
 
