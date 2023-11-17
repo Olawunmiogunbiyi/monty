@@ -7,21 +7,20 @@
  * @value: Integer Value to push to the stack
  */
 
-
 void push(stack_t **stack, int value)
 {
-    stack_t *new_node = malloc(sizeof(stack_t));
-    if (new_node == NULL)
-    {
-        fprintf(stderr, "Error: malloc failed\n");
-        exit(EXIT_FAILURE);
-    }
-
-    new_node->n = value;
-    new_node->prev = NULL;
-
     if (get_mode() == STACK_MODE)
     {
+        stack_t *new_node = malloc(sizeof(stack_t));
+        if (new_node == NULL)
+        {
+            fprintf(stderr, "Error: malloc failed\n");
+            exit(EXIT_FAILURE);
+        }
+
+        new_node->n = value;
+        new_node->prev = NULL;
+
         new_node->next = *stack;
 
         if (*stack != NULL)
@@ -33,24 +32,7 @@ void push(stack_t **stack, int value)
     }
     else if (get_mode() == QUEUE_MODE)
     {
-        stack_t *last = *stack;
-
-        while (last != NULL && last->next != NULL)
-        {
-            last = last->next;
-        }
-
-        if (last != NULL)
-        {
-            last->next = new_node;
-            new_node->prev = last;
-            new_node->next = NULL;
-        }
-        else
-        {
-            new_node->next = *stack;
-            *stack = new_node;
-        }
+        queue_push(stack, value);
     }
 }
 

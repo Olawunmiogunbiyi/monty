@@ -73,6 +73,7 @@ int get_mode();
 void queue_op(stack_t **stack, unsigned int line_number);
 void stack_op(stack_t **stack, unsigned int line_number);
 int get_mode();
+void queue_push(stack_t **stack, int value);
 
 
 
